@@ -1,0 +1,29 @@
+
+.page-header
+  h1 Listing people
+
+.row
+  .col-md-12
+  table.table.table-striped
+    thead
+      tr
+        th Gender
+        th Height
+        th Weight
+        th
+        th
+        th
+  
+    tbody
+      - @people.each do |person|
+        tr
+          td = person.gender
+          td = person.height
+          td = person.weight
+          td = link_to 'Show', person
+          td = link_to 'Edit', edit_person_path(person)
+          td = link_to 'Destroy', person, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+.row
+  .col-md-12
+    = link_to 'New Person', new_person_path

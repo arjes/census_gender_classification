@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
-gem 'slim'
+gem 'slim-rails'
 gem 'naive_bayes_classifiers', git: 'https://github.com/arjes/naive_bayes_classifiers.git'
 
 group :development, :test do
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'libnotify'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
