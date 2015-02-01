@@ -4,25 +4,25 @@
 
 .row
   .col-md-12
-  table.table.table-striped
-    thead
-      tr
-        th Gender
-        th Height
-        th Weight
-        th
-        th
-        th
-  
-    tbody
-      - @people.each do |person|
+    table.table.table-striped
+      thead
         tr
-          td = person.gender
-          td = person.height
-          td = person.weight
-          td = link_to 'Show', person
-          td = link_to 'Edit', edit_person_path(person)
-          td = link_to 'Destroy', person, data: {:confirm => 'Are you sure?'}, :method => :delete
+          th Gender
+          th Height
+          th Weight
+          th
+          th
+          th
+    
+      tbody
+        - present_each @people do |person|
+          tr
+            td = person.gender
+            td = person.height
+            td = person.weight
+            td = link_to 'Show', person.person
+            td = link_to 'Edit', edit_person_path(person.person)
+            td = link_to 'Destroy', person.person, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 .row
   .col-md-12

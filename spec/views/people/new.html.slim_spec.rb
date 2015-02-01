@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "people/new", :type => :view do
   before(:each) do
     assign(:person, Person.new(
-      :gender => "MyString",
+      :gender => "male",
       :height => 1.5,
       :weight => 1.5
     ))
@@ -14,7 +14,7 @@ RSpec.describe "people/new", :type => :view do
 
     assert_select "form[action=?][method=?]", people_path, "post" do
 
-      assert_select "input#person_gender[name=?]", "person[gender]"
+      assert_select "select#person_gender[name=?]", "person[gender]"
 
       assert_select "input#person_height[name=?]", "person[height]"
 

@@ -45,6 +45,7 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'libnotify'
+  gem 'simplecov'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

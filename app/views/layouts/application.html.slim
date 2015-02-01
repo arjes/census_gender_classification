@@ -6,16 +6,16 @@ html
    = javascript_include_tag 'application', 'data-turbolinks-track' => true
    = csrf_meta_tags
 
-body
-  nav.navbar.navbar-default
-    .container-fluid
-      .navbar-header
-        a.navbar-brand href='/' Census Gender Corrector
-      ul.nav.navbar-nav
-        li=link_to "All People", people_path
-        li=link_to "Add a Person", new_person_path
-
-  .container-fluid  
-    .row
-      .col-md-12
-        = yield
+  body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand href='/' Census Gender Corrector
+        ul.nav.navbar-nav
+          li=link_to "All People", people_path
+          li=link_to "Add a Person", new_person_path
+  
+    .container-fluid  
+      .row
+        .col-md-12
+          = yield
