@@ -7,6 +7,7 @@
     table.table.table-striped
       thead
         tr
+          th Estimated?
           th Gender
           th Height
           th Weight
@@ -17,6 +18,7 @@
       tbody
         - present_each @people do |person|
           tr
+            td = person.estimation_required? ? 'Estimate:' : ''
             td = person.gender
             td = person.height
             td = person.weight

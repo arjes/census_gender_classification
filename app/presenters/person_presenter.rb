@@ -31,8 +31,12 @@ class PersonPresenter < BasePresenter
     person.attributes.symbolize_keys.slice(:height, :weight)
   end
 
+  def estimation_required?
+    person.gender.blank?
+  end
+
   def gender
-    if person.gender.blank?
+    if estimation_required?
       h.content_tag :div, 
         self.class.classifier.classify(self.class.attributes_to_classify(person)),
         class: 'estimate'
