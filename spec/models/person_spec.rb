@@ -31,11 +31,27 @@ RSpec.describe Person, :type => :model do
       it "requires a weight be set" do
         expect(Person.new(valid_attributes.merge(weight: '') )).to_not be_valid
       end
+
+      it "requires weight to be a number" do
+        expect(Person.new(valid_attributes.merge(weight: 'safasdf') )).to_not be_valid
+      end
+
+      it "requires weight to be a positive number" do
+        expect(Person.new(valid_attributes.merge(weight: '-5') )).to_not be_valid
+      end
     end
 
     context "height" do
       it "requires a height be set" do
         expect(Person.new(valid_attributes.merge(height: '') )).to_not be_valid
+      end
+
+      it "requires height to be a number" do
+        expect(Person.new(valid_attributes.merge(height: 'safasdf') )).to_not be_valid
+      end
+
+      it "requires height to be a positive number" do
+        expect(Person.new(valid_attributes.merge(height: '-5') )).to_not be_valid
       end
     end
   end
