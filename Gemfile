@@ -36,6 +36,8 @@ gem 'bootstrap-sass'
 gem 'slim-rails'
 gem 'naive_bayes_classifiers', git: 'https://github.com/arjes/naive_bayes_classifiers.git'
 
+gem 'json', require: false
+
 group :production do
   gem 'rails_12factor'
 end
