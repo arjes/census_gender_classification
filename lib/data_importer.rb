@@ -16,7 +16,7 @@ class DataImporter
   def run_insert_query entries
     ActiveRecord::Base.connection.execute "
         INSERT INTO 
-          #{Person.quoted_table_name} (`gender`,`height`,`weight`,`created_at`,`updated_at`)
+          #{Person.quoted_table_name} (gender,height,weight,created_at,updated_at)
         VALUES
           #{entries.collect{|e| insert_entry(e)}.join(',')}
       "
