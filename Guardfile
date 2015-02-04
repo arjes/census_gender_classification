@@ -74,4 +74,10 @@ guard :rspec, cmd: "bundle exec rspec" do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$}) do |m|
     Dir[File.join("**/#{m[1]}.feature")][0] || "spec/acceptance"
   end
+
+  # rake tasks
+  watch(%r{^lib/tasks/(.+)\.rake$}) {|m| "spec/rake/#{m[1]}_spec.rb" }
+
+  # lib files
+  watch(%r{^lib/(.+)\.rb$}) {|m| "spec/lib/#{m[1]}_spec.rb" }
 end
