@@ -28,6 +28,14 @@ describe DataImporter do
 
       importer.import!
     end
+
+    context "when an error is raised" do
+      it "writes to the STDERR" do
+        allow(importer).to receive(:valid_entries).and_raise("OMG!")
+
+        expect{importer.import!}.to output.to_stderr
+      end
+    end
   end
   
   describe "#run_insert_query" do

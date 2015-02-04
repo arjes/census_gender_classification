@@ -11,6 +11,8 @@ class DataImporter
     valid_entries.in_groups_of(10) do |entries|
       run_insert_query entries.compact
     end
+  rescue => e
+    $stderr.puts "Error inserting rows! #{e.message}"
   end
 
   def run_insert_query entries
