@@ -2,7 +2,8 @@ require 'rails_helper'
 
 
 describe DataImporter do
-  let(:importer) { DataImporter.new('foo') }
+  let(:file_name) { 'foo' }
+  let(:importer)  { DataImporter.new(file_name) }
   let(:valid_data) do
     {
       "people" =>  [
@@ -178,7 +179,7 @@ describe DataImporter do
     context "if the file contains malformed JSON" do
       before do
         allow(File).to receive(:readable?).and_return true
-        allow(File).to receive(:read).and_return '{}omg invalid json'
+        allow(File).to receive(:read).with(file_name).and_return '{}omg invalid json'
       end
 
       it "outputs a message to STDERR" do
